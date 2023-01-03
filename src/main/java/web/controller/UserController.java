@@ -18,13 +18,13 @@ public class UserController {
     }
 
     @GetMapping(value = "get")
-    public String showUsers(ModelMap modelMap) {
+    public String getUsers(ModelMap modelMap) {
         modelMap.addAttribute("users", userService.getAll());
         return "get";
     }
 
     @GetMapping(value = "/new")
-    public String newUser(ModelMap modelMap) {
+    public String createUser(ModelMap modelMap) {
         modelMap.addAttribute("user", new User());
         return "new";
     }
