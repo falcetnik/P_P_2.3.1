@@ -18,7 +18,7 @@ public class UserController {
     }
 
     @GetMapping(value = "get")
-    public String printAllUsers(ModelMap modelMap) {
+    public String getTemplateForPrintAllUsers(ModelMap modelMap) {
         modelMap.addAttribute("users", userService.getAll());
         return "get";
     }
