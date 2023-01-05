@@ -18,26 +18,26 @@ public class UserController {
     }
 
     @GetMapping(value = "get")
-    public String getUsers(ModelMap modelMap) {
+    public String printAllUsers(ModelMap modelMap) {
         modelMap.addAttribute("users", userService.getAll());
         return "get";
     }
 
     @GetMapping(value = "/new")
-    public String createUser(ModelMap modelMap) {
+    public String getTemplateForCreateUser(ModelMap modelMap) {
         modelMap.addAttribute("user", new User());
         return "new";
     }
 
 
     @GetMapping("/{id}/edit")
-    public String editUser(ModelMap modelMap, @PathVariable("id") Long id) {
+    public String getTemplateForUpdatingAndDeletingUser(ModelMap modelMap, @PathVariable("id") Long id) {
         modelMap.addAttribute("user", userService.getById(id));
         return "edit";
     }
 
     @PostMapping
-    public String addUser(@ModelAttribute("user") User user) {
+    public String createUser(@ModelAttribute("user") User user) {
         userService.add(user);
         return "redirect:/users/get";
     }
